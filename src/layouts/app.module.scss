@@ -1,0 +1,31 @@
+.layout {
+  min-height: 100vh;
+}
+
+.sider {
+  position: relative;
+  padding-bottom: 40px;
+
+  ul {
+    height: 100%;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+      flex-grow: 1;
+      margin: 0 !important;
+      display: flex;
+
+      align-items: center;
+    }
+  }
+}
+
+.collapse-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
