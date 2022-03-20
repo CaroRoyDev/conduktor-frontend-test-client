@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Select } from "antd";
 import { LanguageContext } from "../../context/multilingual.context";
-import { OptionProps } from "antd/lib/select";
 
 const { Option } = Select;
 
