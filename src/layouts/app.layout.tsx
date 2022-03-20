@@ -36,7 +36,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
     <Layout className={styles.layout}>
       <Header />
-      <Layout>
+      <Layout className={styles["content-layout"]}>
         <Sider
           collapsible
           collapsed={isCollapsed}

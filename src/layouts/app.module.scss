@@ -2,9 +2,17 @@
   min-height: 100vh;
 }
 
-.sider {
+.content-layout {
   position: relative;
+}
+
+.sider {
+  position: sticky;
+
+  top: 0;
+  left: 0;
   padding-bottom: 40px;
+  max-height: 90vh;
 
   ul {
     height: 100%;
