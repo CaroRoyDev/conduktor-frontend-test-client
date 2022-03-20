@@ -1,13 +1,8 @@
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu, Button } from "antd";
 import "antd/dist/antd.css";
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  DoubleRightOutlined,
-  DoubleLeftOutlined,
-} from "@ant-design/icons";
+import { DoubleRightOutlined, DoubleLeftOutlined } from "@ant-design/icons";
 import {
   FaHome,
   FaCogs,

@@ -1,8 +1,39 @@
 import React from "react";
+import { useQuery, gql } from "@apollo/client";
 import { Table } from "antd";
-import { TabStats, ShowDataButton } from "../../components";
+
+import { topicsDataToAntdArray } from "../../utils/topics.utils";
+import {
+  TabStats,
+  ShowDataButton,
+  SwitchStarredButton,
+} from "../../components";
 import { ShowDataButtonProps } from "../../components/show-data-button/show-data-button.component";
+import { SwitchStarredButtonProps } from "../../components/switch-starred-button/switch-starred-button.component";
+
+const GET_TOPICS = gql`
+  query getTopics {
+    topics {
+      id
+      title
+      starred
+      consumers {
+        id
+      }
+      datas {
+        timestamp
+      }
+    }
+  }
+`;
+
 const TopicsPages = () => {
+  const { data, loading } = useQuery(GET_TOPICS);
+  const tableData = topicsDataToAntdArray(data?.topics);
+  const statsList = [
+    { value: tableData.length, title: "Topics" },
+    { value: 287, title: "Partitions" },
+  ];
   return (
     <>
       <section>
@@ -11,35 +42,16 @@ const TopicsPages = () => {
           <TabStats statsList={statsList} />
         </header>
         <main>
-          <Table dataSource={tableData} columns={tableColumns} />
+          <Table
+            dataSource={tableData}
+            columns={tableColumns}
+            loading={loading}
+          />
         </main>
       </section>
     </>
   );
 };
-
-const statsList = [
-  { value: 10, title: "Topics" },
-  { value: 287, title: "Partitions" },
-];
-
-const tableData = [
-  {
-    key: "1",
-    title: "Topic 1",
-    count: 100,
-    consumers: 2,
-    starred: "*",
-    showData: "1/topic-data",
-  },
-  {
-    key: "2",
-    title: "John",
-    count: 10,
-    consumers: 5,
-    showData: "2/topic-data",
-  },
-];
 
 const tableColumns = [
   {
@@ -59,6 +71,9 @@ const tableColumns = [
     title: "",
     dataIndex: "starred",
     key: "starred",
+    render: ({ isStarred, clickHandler }: SwitchStarredButtonProps) => (
+      <SwitchStarredButton isStarred={isStarred} clickHandler={clickHandler} />
+    ),
   },
   {
     title: "Count",
