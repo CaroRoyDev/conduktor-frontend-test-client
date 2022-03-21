@@ -11,7 +11,7 @@ const SwitchLanguageButton: React.FC = () => {
     setLanguage(value);
   };
   return (
-    <Select onChange={handleChange} defaultValue="english">
+    <Select onChange={handleChange} value={language}>
       <Option value="english">English</Option>
       <Option value="french">Français</Option>
     </Select>

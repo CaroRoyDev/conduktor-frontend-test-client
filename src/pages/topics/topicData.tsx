@@ -33,12 +33,10 @@ const TopicDataPage: React.FC = () => {
         loading={loading}
         bordered={true}
         renderItem={(data: any) => {
-          console.log(data.timestamp);
           const date = new Date(parseInt(data.timestamp, 10)).toLocaleString();
           return (
             <List.Item key={data.id}>
               <List.Item.Meta title={date} description={`#${data.key}`} />
-
               {data.content}
             </List.Item>
           );

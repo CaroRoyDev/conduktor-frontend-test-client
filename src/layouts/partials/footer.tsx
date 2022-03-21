@@ -13,9 +13,6 @@ const Footer: React.FC = () => {
       >
         https://www.conduktor.io/
       </a>
-      <a href="mailto:caroline.roy.dev@gmail.com">
-        Send me a feedback on my test
-      </a>
     </FooterLayout>
   );
 };
