@@ -5,7 +5,7 @@ import { TranslationContent as T } from "./../../context/multilingual.context";
 const LoginButton: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
   return (
-    <Button onClick={() => loginWithRedirect()} type="primary">
+    <Button onClick={() => loginWithRedirect()} type="primary" shape="round">
       <T contentId={"login"} />
     </Button>
   );

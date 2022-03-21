@@ -1,6 +1,7 @@
 export const translations = {
   english: {
     nocontent: "No content available",
+    visitTopics: "Please go to topics",
     login: "Log in",
     logout: "Log out",
     guest: "Guest",
@@ -13,6 +14,7 @@ export const translations = {
   },
   french: {
     nocontent: "Pas de contenu disponible",
+    visitTopics: "Veuillez vous rendre à l'onglet Topics",
     login: "Me connecter",
     logout: "Me déconnecter",
     guest: "Invité",

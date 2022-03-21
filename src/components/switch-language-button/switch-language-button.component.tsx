@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Select } from "antd";
 import { LanguageContext } from "../../context/multilingual.context";
-
+import styles from "./switch-language-button.module.scss";
 const { Option } = Select;
 
 const SwitchLanguageButton: React.FC = () => {
@@ -11,7 +11,7 @@ const SwitchLanguageButton: React.FC = () => {
     setLanguage(value);
   };
   return (
-    <Select onChange={handleChange} value={language}>
+    <Select onChange={handleChange} value={language} className={styles.select}>
       <Option value="english">English</Option>
       <Option value="french">Français</Option>
     </Select>

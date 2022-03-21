@@ -5,3 +5,4 @@ export { default as SwitchLanguageButton } from "./switch-language-button/switch
 export { default as LoginButton } from "./login-button/login-button.component";
 export { default as LogoutButton } from "./logout-button/logout-button.component";
 export { default as UserProfile } from "./user-profile/user-profile.component";
+export { default as Error404 } from "./errors/Error404.component";

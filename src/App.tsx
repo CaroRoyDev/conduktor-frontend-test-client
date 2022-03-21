@@ -5,7 +5,8 @@ import { LanguageProvider } from "./context/multilingual.context";
 import AppLayout from "./layouts/app.layout";
 import TopicsPages from "./pages/topics";
 import TopicDataPage from "./pages/topics/topicData";
-import { TranslationContent as T } from "./context/multilingual.context";
+import { Error404 } from "./components";
+
 import "./App.css";
 
 function App() {
@@ -23,14 +24,7 @@ function App() {
                 <Route index element={<TopicsPages />} />
                 <Route path=":id/topic-data" element={<TopicDataPage />} />
               </Route>
-              <Route
-                path="*"
-                element={
-                  <h1>
-                    <T contentId={"nocontent"} />
-                  </h1>
-                }
-              />
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </AppLayout>
         </Auth0Provider>

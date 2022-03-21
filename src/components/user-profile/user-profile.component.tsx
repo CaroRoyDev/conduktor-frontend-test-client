@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { TranslationContent as T } from "./../../context/multilingual.context";
+import Profile from "./user-profile.styled";
 interface UserProfileProps {
   pictureUrl?: string;
   name?: string;
@@ -13,12 +14,14 @@ const UserProfile: React.FC<UserProfileProps> = ({
   name,
   isAuthenticated,
 }) => {
-  return (
-    <span>
+  return isAuthenticated ? (
+    <Profile>
       <Avatar size="large" icon={<UserOutlined />} src={pictureUrl} />
-      <span>{isAuthenticated ? name : <T contentId={"guest"} />}</span>
-    </span>
-  );
+      <span className="user-name">
+        {isAuthenticated ? name : <T contentId={"guest"} />}
+      </span>
+    </Profile>
+  ) : null;
 };
 
 export default UserProfile;

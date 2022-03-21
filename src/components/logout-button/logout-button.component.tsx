@@ -8,6 +8,7 @@ const LogoutButton: React.FC = () => {
     <Button
       onClick={() => logout({ returnTo: window.location.origin })}
       type="primary"
+      shape="round"
     >
       <T contentId={"logout"} />
     </Button>

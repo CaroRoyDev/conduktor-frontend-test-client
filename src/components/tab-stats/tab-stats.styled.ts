@@ -8,7 +8,9 @@ const StatsBoard = styled.div`
 `;
 
 // Override for antd stat title not "stylable" through props
-const StatistiStyles = styled(Statistic)`
+const StatisticCard = styled(Statistic)`
+  background-color: #f7f7f7;
+  border-radius: 0.5em;
   .ant-statistic-title {
     font-size: inherit;
   }
@@ -25,4 +27,4 @@ const CardStyle = {
   fontSize: "1.2rem",
 };
 
-export { StatsBoard, StatistiStyles, ValueStyle, CardStyle };
+export { StatsBoard, StatisticCard, ValueStyle, CardStyle };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, LinkProps } from "react-router-dom";
+import { Button } from "antd";
 import { FaSearch } from "react-icons/fa";
 
 export interface ShowDataButtonProps {
@@ -9,9 +10,9 @@ export interface ShowDataButtonProps {
 const ShowDataButtonUI: React.FC<ShowDataButtonProps> = ({ to }) => {
   return (
     <Link to={to}>
-      <button>
+      <Button shape="circle">
         <FaSearch />
-      </button>
+      </Button>
     </Link>
   );
 };

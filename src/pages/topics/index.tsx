@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import { Table, Button } from "antd";
+import { Table, Button, Typography, Divider } from "antd";
 import { FaPlus } from "react-icons/fa";
 import { topicsDataToAntdArray } from "../../utils/topics.utils";
 import {
@@ -12,6 +12,8 @@ import { ShowDataButtonProps } from "../../components/show-data-button/show-data
 import { SwitchStarredButtonProps } from "../../components/switch-starred-button/switch-starred-button.component";
 import { TranslationContent as T } from "../../context/multilingual.context";
 import { NewTopicFormDrawer } from "../../components/topics";
+
+import { PageHeader } from "./page.styled";
 
 const GET_TOPICS = gql`
   query getTopics {
@@ -28,6 +30,8 @@ const GET_TOPICS = gql`
     }
   }
 `;
+
+const { Title } = Typography;
 
 const TopicsPages: React.FC = () => {
   const [drawerIsVisible, setDrawerIsVisible] = useState(false);
@@ -52,18 +56,22 @@ const TopicsPages: React.FC = () => {
       <NewTopicFormDrawer visible={drawerIsVisible} onClose={hideDrawer} />
 
       <section>
-        <header>
-          <h1>Topics</h1>
-          <TabStats statsList={statsList} />
-          <Button onClick={showDrawer} type={"primary"} icon={<FaPlus />}>
-            <T contentId={"createTopic"} />
-          </Button>
-        </header>
+        <PageHeader>
+          <div className="super">
+            <Title>Topics</Title>
+            <Button onClick={showDrawer} type={"primary"} icon={<FaPlus />}>
+              <T contentId={"createTopic"} />
+            </Button>
+          </div>
+          <Divider />
+          <TabStats statsList={statsList} loading={loading} />
+        </PageHeader>
         <main>
           <Table
             dataSource={tableData}
             columns={tableColumns}
             loading={loading}
+            pagination={{ position: ["topRight"] }}
           />
         </main>
       </section>

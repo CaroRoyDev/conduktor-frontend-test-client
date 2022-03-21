@@ -1,7 +1,10 @@
 import styled, { css } from "styled-components";
+import { Button } from "antd";
 
 const common = css`
   font-size: 1.2em;
+  border: none;
+  background: none !important;
 `;
 
 const starred = css`
@@ -16,7 +19,7 @@ interface StarButtonProps {
   isStarred: Boolean;
 }
 
-const StarButton = styled.button<StarButtonProps>(
+const StarButton = styled(Button)<StarButtonProps>(
   ({ isStarred }) => `
     ${common}
     ${isStarred ? starred : unstarred}
